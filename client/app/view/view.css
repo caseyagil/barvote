@@ -1,0 +1,18 @@
+.heading {
+     font-size: 35px;
+     font-weight: bold;
+ }
+
+ label {
+     font-size: 20px;
+ }
+
+ #answer-value {
+     font-size: 40px;
+ }
+
+ #answer-votes {
+     font-size: 10px;
+     font-weight: normal;
+
+ } 

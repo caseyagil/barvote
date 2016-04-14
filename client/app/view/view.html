@@ -1,0 +1,29 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+ <div class="container">
+   <div class="heading">{{poll.title}}</div>
+   <p>created by {{poll.creator}} <a href="{{ '/view/'  poll._id }}">link</a></p>
+   <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+     <form ng-submit="submitForm()">
+       <div ng-repeat="answer in poll.answers">
+         <label>
+           <input type="radio" name="option" ng-model="radioData.index" value="{{$index}}" ng-true-value="false" />
+           <span id="answer-value"></span>{{ answer.value }} <span id="answer-votes"><em>({{ answer.votes }} Votes)</em></span>
+         </label>
+       </div>
+       <!-- add a new option to poll -->
+       <form class="form-inline">
+         <div ng-show="isLoggedIn()" ng-repeat="itemToAdd in itemsToAdd">
+           <input ng-show="isCreator()" type="text" ng-model="itemToAdd.value" class="form-control" />
+           <button ng-show="isCreator()" ng-click="add(itemToAdd)" class="btn btn-primary">Add</button>
+           <button ng-disabled="alreadyVoted" ng-show="isLoggedIn()" class="btn btn-success" type="submit">Vote</button>
+         </div>
+       </form>
+     </form>
+     <a href="login">
+       <button ng-hide="isLoggedIn()" class="btn btn-primary" type="submit">Login or Sign up to Vote!</button>
+     </a>
+   </div>
+   <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+     <canvas id="myChart" width="200" height="200"></canvas>
+   </div>
+ </div>

@@ -1,0 +1,23 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+ <div class="container">
+   <a href="login" ng-hide="isLoggedIn()">
+     <button class="btn btn-primary" type="submit">Login or Sign up to Create a Poll!</button>
+   </a>
+   <div class="jumbotron" ng-show="isLoggedIn()">
+     <form role="form">
+       <div class="form-group">
+         <label for="title" class="control-label">
+           <h3>Create a New Poll</h3></label>
+         <input type="text" ng-model="poll.title" class="form-control" id="title" placeholder="Enter the poll title" />
+       </div>
+       <div class="form-group">
+         <h5>Answers</h5>
+         <div ng-repeat="answer in poll.answers">
+           <input type="text" value="{{ answer.value }}" ng-model="answer.value" class="form-control" />
+         </div>
+         <button class="btn btn-success" ng-click="addOptionField()">add Option</button>
+       </div>
+       <input ng-disabled="isInvalid()" type="submit" class="btn btn-primary" ng-click="savePoll()" value="Save" />
+     </form>
+   </div>
+ </div>

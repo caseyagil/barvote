@@ -1,6 +1,6 @@
 'use strict';
 
- angular.module('votingApp')
+ angular.module('barVote')
    .controller('NavbarCtrl', function($scope, $location, Auth) {
      $scope.menu = [{
        'title': 'Home',

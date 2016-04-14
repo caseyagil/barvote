@@ -1,0 +1,27 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+ <header class="hero-unit">
+   <div class="container">
+     <h1>Voting App</h1>
+     <img class="img img-responsive" src="../assets/images/main-chart.png">
+   </div>
+ </header>
+ <div class="container">
+   <div class="row">
+     <div class="col-lg-12">
+       <h1 class="page-header">new polls</h1>
+       <div class="panel panel-default">
+         <ul class="nav nav-stacked col-md-12 col-lg-12 col-sm-12" ng-repeat="poll in polls">
+           <li><a href="/view/{{poll._id}}">{{poll.title}}</a>
+             <button ng-show="isAdmin()" ng-click="deletePoll($index, poll._id)">Delete</button>
+           </li>
+         </ul>
+       </div>
+     </div>
+   </div>
+ </div>
+ <footer class="footer">
+   <div class="container">
+     <p>by awwakum |
+       <a href="https://github.com/awwakum/voting-app">github</a>
+   </div>
+ </footer>

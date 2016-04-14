@@ -1,0 +1,14 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+ <div class="container">
+   <table class="table table-condensed table-hover">
+     <h3>My Polls</h3>
+     <tr ng-repeat="poll in polls | filter:{creator: getCurrentUser().name}">
+       <td>
+         <a ng-href="/view/{{poll._id}}">{{poll.title}}</a>
+       </td>
+       <td>
+         <button class="btn btn-danger" ng-click="deletePoll($index, poll._id)">delete</button>
+       </td>
+     </tr>
+   </table>
+ </div>
